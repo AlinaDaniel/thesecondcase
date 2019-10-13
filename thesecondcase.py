@@ -1,16 +1,21 @@
-# Case #2.
+# Case #2 "Progressive taxation".
+
+# The program displays the amount of tax for an individual taking into account
+# his monthly income and annual tax deductions.
+
 # Developers:   Zemtseva A. (%),
 #               Zaitseva A. (%),
 #               Daniel A.   (%).
 
 import sys
+import local as lc
 
 annual_income = int(input('Enter your annual income: '))
-category_of_population = input('Введите свой семейный статус (один субъект, '
-                               'семейная пара или родитель-одиночка): ')
+# The user chooses which category of the population he belongs to.
+category_of_population = str.lower(input(lc.TXT_FAMILY_STATUS))
 
-if category_of_population == 'один субъект':
-
+if category_of_population == lc.TXT_ONE_SUBJECT:
+    # Function, calculating the amount of annual tax deductions for one subject.
     TAX_RATE_1 = 0.1
     TAX_RATE_2 = 0.15
     TAX_RATE_3 = 0.25
@@ -28,26 +33,32 @@ if category_of_population == 'один субъект':
     BOUNDARY_INCOME_7 = 406_751
 
     if annual_income in range(BOUNDARY_INCOME_2):
+        # The annual income is in first step.
         amount_of_tax = TAX_RATE_1 * (annual_income - BOUNDARY_INCOME_1)
     elif annual_income in range(BOUNDARY_INCOME_2, BOUNDARY_INCOME_3):
+        # The annual income is in second step.
         amount_of_tax = TAX_RATE_2 * (annual_income - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
     elif annual_income in range(BOUNDARY_INCOME_3, BOUNDARY_INCOME_4):
+        # The annual income is in third step.
         amount_of_tax = TAX_RATE_3 * (annual_income - BOUNDARY_INCOME_3) + \
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
     elif annual_income in range(BOUNDARY_INCOME_4, BOUNDARY_INCOME_5):
+        # The annual income is in fourth step.
         amount_of_tax = TAX_RATE_4 * (annual_income - BOUNDARY_INCOME_4) + \
                         TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
     elif annual_income in range(BOUNDARY_INCOME_5, BOUNDARY_INCOME_6):
+        # The annual income is in fifth step.
         amount_of_tax = TAX_RATE_5 * (annual_income - BOUNDARY_INCOME_5) + \
                         TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
                         TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
     elif annual_income in range(BOUNDARY_INCOME_6, BOUNDARY_INCOME_7):
+        # The annual income is in sixth step.
         amount_of_tax = TAX_RATE_6 * (annual_income - BOUNDARY_INCOME_6) + \
                         TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
                         TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
@@ -55,6 +66,7 @@ if category_of_population == 'один субъект':
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
     elif annual_income in range(BOUNDARY_INCOME_7, sys.maxsize ** 10):
+        # The annual income is in seventh step.
         amount_of_tax = TAX_RATE_7 * (annual_income - BOUNDARY_INCOME_7) + \
                         TAX_RATE_6 * (BOUNDARY_INCOME_7 - BOUNDARY_INCOME_6) + \
                         TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
@@ -62,131 +74,128 @@ if category_of_population == 'один субъект':
                         TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-elif category_of_population == 'семейная пара':
-    pass
-elif category_of_population == 'родитель-одиночка':
-    pass
+elif category_of_population == lc.TXT_MARRIED_COUPLE:
+    # Function, calculating the amount of annual tax deductions for a married couple.
+    TAX_RATE_1 = 0.1
+    TAX_RATE_2 = 0.15
+    TAX_RATE_3 = 0.25
+    TAX_RATE_4 = 0.28
+    TAX_RATE_5 = 0.33
+    TAX_RATE_6 = 0.35
+    TAX_RATE_7 = 0.396
 
+    BOUNDARY_INCOME_1 = 0
+    BOUNDARY_INCOME_2 = 18_151
+    BOUNDARY_INCOME_3 = 73_801
+    BOUNDARY_INCOME_4 = 148_851
+    BOUNDARY_INCOME_5 = 226_851
+    BOUNDARY_INCOME_6 = 405_101
+    BOUNDARY_INCOME_7 = 457_601
+
+    if annual_income in range(BOUNDARY_INCOME_2):
+        # The annual income is in first step.
+        amount_of_tax = TAX_RATE_1 * (annual_income - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_2, BOUNDARY_INCOME_3):
+        # The annual income is in second step.
+        amount_of_tax = TAX_RATE_2 * (annual_income - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_3, BOUNDARY_INCOME_4):
+        # The annual income is in third step.
+        amount_of_tax = TAX_RATE_3 * (annual_income - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_4, BOUNDARY_INCOME_5):
+        # The annual income is in fourth step.
+        amount_of_tax = TAX_RATE_4 * (annual_income - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_5, BOUNDARY_INCOME_6):
+        # The annual income is in fifth step.
+        amount_of_tax = TAX_RATE_5 * (annual_income - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_6, BOUNDARY_INCOME_7):
+        # The annual income is in sixth step.
+        amount_of_tax = TAX_RATE_6 * (annual_income - BOUNDARY_INCOME_6) + \
+                        TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_7, sys.maxsize ** 10):
+        # The annual income is in seventh step.
+        amount_of_tax = TAX_RATE_7 * (annual_income - BOUNDARY_INCOME_7) + \
+                        TAX_RATE_6 * (BOUNDARY_INCOME_7 - BOUNDARY_INCOME_6) + \
+                        TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+elif category_of_population == lc.TXT_SINGLE_PARENT:
+    # Function, calculating the amount of annual tax deductions for a single parent.
+    TAX_RATE_1 = 0.1
+    TAX_RATE_2 = 0.15
+    TAX_RATE_3 = 0.25
+    TAX_RATE_4 = 0.28
+    TAX_RATE_5 = 0.33
+    TAX_RATE_6 = 0.35
+    TAX_RATE_7 = 0.396
+
+    BOUNDARY_INCOME_1 = 0
+    BOUNDARY_INCOME_2 = 12_951
+    BOUNDARY_INCOME_3 = 49_401
+    BOUNDARY_INCOME_4 = 127_551
+    BOUNDARY_INCOME_5 = 206_601
+    BOUNDARY_INCOME_6 = 405_101
+    BOUNDARY_INCOME_7 = 432_201
+
+    if annual_income in range(BOUNDARY_INCOME_2):
+        # The annual income is in first step.
+        amount_of_tax = TAX_RATE_1 * (annual_income - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_2, BOUNDARY_INCOME_3):
+        # The annual income is in second step.
+        amount_of_tax = TAX_RATE_2 * (annual_income - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_3, BOUNDARY_INCOME_4):
+        # The annual income is in third step.
+        amount_of_tax = TAX_RATE_3 * (annual_income - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_4, BOUNDARY_INCOME_5):
+        # The annual income is in fourth step.
+        amount_of_tax = TAX_RATE_4 * (annual_income - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_5, BOUNDARY_INCOME_6):
+        # The annual income is in fifth step.
+        amount_of_tax = TAX_RATE_5 * (annual_income - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_6, BOUNDARY_INCOME_7):
+        # The annual income is in sixth step.
+        amount_of_tax = TAX_RATE_6 * (annual_income - BOUNDARY_INCOME_6) + \
+                        TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_7, sys.maxsize ** 10):
+        # The annual income is in seventh step.
+        amount_of_tax = TAX_RATE_7 * (annual_income - BOUNDARY_INCOME_7) + \
+                        TAX_RATE_6 * (BOUNDARY_INCOME_7 - BOUNDARY_INCOME_6) + \
+                        TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 
 # TODO (Zaitseva A): Circle function for calculating a annual income.
-
-pass
-
-
-# TODO (Daniel A): The user chooses which category of the population he belongs to.
-
-pass
-
-
-# TODO (Daniel A): Function for one subject.
-
-pass
-
-
-# TODO (Zemtseva A): Function for a married couple.
-
-annual_income = int(input('Enter your annual income: '))
-
-TAX_RATE_1 = 0.1
-TAX_RATE_2 = 0.15
-TAX_RATE_3 = 0.25
-TAX_RATE_4 = 0.28
-TAX_RATE_5 = 0.33
-TAX_RATE_6 = 0.35
-TAX_RATE_7 = 0.396
-
-BOUNDARY_INCOME_1 = 0
-BOUNDARY_INCOME_2 = 18_151
-BOUNDARY_INCOME_3 = 73_801
-BOUNDARY_INCOME_4 = 148_851
-BOUNDARY_INCOME_5 = 226_851
-BOUNDARY_INCOME_6 = 405_101
-BOUNDARY_INCOME_7 = 457_601
-
-import sys
-if annual_income in range(18_151):
-    amount_of_tax = TAX_RATE_1*(annual_income - BOUNDARY_INCOME_1)
-elif annual_income in range(12_951, 73_801):
-    amount_of_tax = TAX_RATE_2*(annual_income - BOUNDARY_INCOME_2) + \
-                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-elif annual_income in range(73_801, 148_851):
-    amount_of_tax = TAX_RATE_3*(annual_income - BOUNDARY_INCOME_3)  + \
-                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
-                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-elif annual_income in range(148_851, 226_851):
-    amount_of_tax = TAX_RATE_4*(annual_income - BOUNDARY_INCOME_4) + \
-                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
-                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
-                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-elif annual_income in range(226_851, 405_101):
-    amount_of_tax = TAX_RATE_5*(annual_income - BOUNDARY_INCOME_5) + \
-                    TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
-                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
-                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
-                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-elif annual_income in range(405_101, 457_601):
-    amount_of_tax = TAX_RATE_6*(annual_income - BOUNDARY_INCOME_6) + \
-                    TAX_RATE_5*(BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
-                    TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
-                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
-                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
-                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-elif annual_income in range(457_601, sys.maxsize**10):
-    amount_of_tax = TAX_RATE_7*(annual_income - BOUNDARY_INCOME_7) + \
-                    TAX_RATE_6*(BOUNDARY_INCOME_7 - BOUNDARY_INCOME_6) + \
-                    TAX_RATE_5*(BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
-                    TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
-                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
-                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
-                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-
-pass
-
-
-# TODO (Zaitseva A): Function for a single parent.
-# function for a single parent.
-
-annual_income = int(input('Enter your annual income: '))
-
-S_1 = 0.1
-S_2 = 0.15
-S_3 = 0.25
-S_4 = 0.28
-S_5 = 0.33
-S_6 = 0.35
-S_7 = 0.396
-
-D_1 = 0
-D_2 = 12_951
-D_3 = 49_401
-D_4 = 127_551
-D_5 = 206_601
-D_6 = 405_101
-D_7 = 432_201
-
-if annual_income in range(12_951):
-    n = S_1*(annual_income - D_1)
-elif annual_income in range(12_951, 49_401):
-    n = S_2*(annual_income - D_2) + S_1*(D_2 - D_1)
-elif annual_income in range(49_401, 127_551):
-    n = S_3*(annual_income - D_3) + S_2*(D_3 - D_2) + S_1*(D_2 - D_1)
-elif annual_income in range(127_551, 206_601):
-    n = S_4*(annual_income - D_4) + S_3*(D_4 - D_3) + S_2*(D_3 - D_2) + S_1*(D_2 - D_1)
-elif annual_income in range(206_601, 405_101):
-    n = S_5*(annual_income - D_5) + S_4*(D_5 - D_4) + S_3*(D_4 - D_3) + S_2*(D_3 - D_2) + S_1*(D_2 - D_1)
-elif annual_income in range(405_101, 432_201):
-    n = S_6*(annual_income - D_6) + S_5*(D_6 - D_5) + S_4*(D_5 - D_4) + S_3*(D_4 - D_3) + S_2*(D_3 - D_2) \
-        + S_1*(D_2 - D_1)
-elif annual_income in range(432_201, sys.maxsize**10):
-    n = S_7*(annual_income - D_7) + S_6*(D_7 - D_6) + S_5*(D_6 - D_5) + S_4*(D_5 - D_4) + S_3*(D_4 - D_3) \
-        + S_2*(D_3 - D_2) + S_1*(D_2 - D_1)
-
-
-pass
-
-
-# TODO (Zemtseva A): Circle function for calculating an amount of the annual tax.
-
 
 pass
 
@@ -196,7 +205,9 @@ pass
 pass
 
 
-# TODO (Daniel A): Code rewiew.
+# TODO (Daniel A, Zemtseva A): Code rewiew.
 
 pass
-print('the amount of tax is ', n)
+
+
+print(lc.TXT_ANNUAL_TAX, round(amount_of_tax, 2))
