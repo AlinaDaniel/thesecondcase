@@ -105,29 +105,40 @@ BOUNDARY_INCOME_7 = 457_601
 
 import sys
 if annual_income in range(18_151):
-    n = TAX_RATE_1*(annual_income - BOUNDARY_INCOME_1)
+    amount_of_tax = TAX_RATE_1*(annual_income - BOUNDARY_INCOME_1)
 elif annual_income in range(12_951, 73_801):
-    n = TAX_RATE_2*(annual_income - BOUNDARY_INCOME_2) + TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    amount_of_tax = TAX_RATE_2*(annual_income - BOUNDARY_INCOME_2) + \
+                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 elif annual_income in range(73_801, 148_851):
-    n = TAX_RATE_3*(annual_income - BOUNDARY_INCOME_3) + TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2)\
-        + TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    amount_of_tax = TAX_RATE_3*(annual_income - BOUNDARY_INCOME_3)  + \
+                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 elif annual_income in range(148_851, 226_851):
-    n = TAX_RATE_4*(annual_income - BOUNDARY_INCOME_4) + TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3)\
-        + TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    amount_of_tax = TAX_RATE_4*(annual_income - BOUNDARY_INCOME_4) + \
+                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 elif annual_income in range(226_851, 405_101):
-    n = TAX_RATE_5*(annual_income - BOUNDARY_INCOME_5) + TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4)\
-        + TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) \
-        + TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    amount_of_tax = TAX_RATE_5*(annual_income - BOUNDARY_INCOME_5) + \
+                    TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 elif annual_income in range(405_101, 457_601):
-    n = TAX_RATE_6*(annual_income - BOUNDARY_INCOME_6) + TAX_RATE_5*(BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5)\
-        + TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) \
-        + TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    amount_of_tax = TAX_RATE_6*(annual_income - BOUNDARY_INCOME_6) + \
+                    TAX_RATE_5*(BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                    TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 elif annual_income in range(457_601, sys.maxsize**10):
-    n = TAX_RATE_7*(annual_income - BOUNDARY_INCOME_7) + TAX_RATE_6*(BOUNDARY_INCOME_7 - BOUNDARY_INCOME_6)\
-        + TAX_RATE_5*(BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4)\
-        + TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2)\
-        + TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
-print('the amount of tax is ', n)
+    amount_of_tax = TAX_RATE_7*(annual_income - BOUNDARY_INCOME_7) + \
+                    TAX_RATE_6*(BOUNDARY_INCOME_7 - BOUNDARY_INCOME_6) + \
+                    TAX_RATE_5*(BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                    TAX_RATE_4*(BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                    TAX_RATE_3*(BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                    TAX_RATE_2*(BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                    TAX_RATE_1*(BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 
 pass
 
