@@ -3,6 +3,70 @@
 #               Zaitseva A. (%),
 #               Daniel A.   (%).
 
+import sys
+
+annual_income = int(input('Enter your annual income: '))
+category_of_population = input('Введите свой семейный статус (один субъект, '
+                               'семейная пара или родитель-одиночка): ')
+
+if category_of_population == 'один субъект':
+
+    TAX_RATE_1 = 0.1
+    TAX_RATE_2 = 0.15
+    TAX_RATE_3 = 0.25
+    TAX_RATE_4 = 0.28
+    TAX_RATE_5 = 0.33
+    TAX_RATE_6 = 0.35
+    TAX_RATE_7 = 0.396
+
+    BOUNDARY_INCOME_1 = 0
+    BOUNDARY_INCOME_2 = 9_076
+    BOUNDARY_INCOME_3 = 36_901
+    BOUNDARY_INCOME_4 = 89_351
+    BOUNDARY_INCOME_5 = 186_351
+    BOUNDARY_INCOME_6 = 405_101
+    BOUNDARY_INCOME_7 = 406_751
+
+    if annual_income in range(BOUNDARY_INCOME_2):
+        amount_of_tax = TAX_RATE_1 * (annual_income - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_2, BOUNDARY_INCOME_3):
+        amount_of_tax = TAX_RATE_2 * (annual_income - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_3, BOUNDARY_INCOME_4):
+        amount_of_tax = TAX_RATE_3 * (annual_income - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_4, BOUNDARY_INCOME_5):
+        amount_of_tax = TAX_RATE_4 * (annual_income - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_5, BOUNDARY_INCOME_6):
+        amount_of_tax = TAX_RATE_5 * (annual_income - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_6, BOUNDARY_INCOME_7):
+        amount_of_tax = TAX_RATE_6 * (annual_income - BOUNDARY_INCOME_6) + \
+                        TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+    elif annual_income in range(BOUNDARY_INCOME_7, sys.maxsize ** 10):
+        amount_of_tax = TAX_RATE_7 * (annual_income - BOUNDARY_INCOME_7) + \
+                        TAX_RATE_6 * (BOUNDARY_INCOME_7 - BOUNDARY_INCOME_6) + \
+                        TAX_RATE_5 * (BOUNDARY_INCOME_6 - BOUNDARY_INCOME_5) + \
+                        TAX_RATE_4 * (BOUNDARY_INCOME_5 - BOUNDARY_INCOME_4) + \
+                        TAX_RATE_3 * (BOUNDARY_INCOME_4 - BOUNDARY_INCOME_3) + \
+                        TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
+                        TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
+elif category_of_population == 'семейная пара':
+    pass
+elif category_of_population == 'родитель-одиночка':
+    pass
+
 
 # TODO (Zaitseva A): Circle function for calculating a annual income.
 
@@ -45,7 +109,6 @@ D_5 = 206_601
 D_6 = 405_101
 D_7 = 432_201
 
-import sys
 if annual_income in range(12_951):
     n = S_1*(annual_income - D_1)
 elif annual_income in range(12_951, 49_401):
@@ -62,7 +125,7 @@ elif annual_income in range(405_101, 432_201):
 elif annual_income in range(432_201, sys.maxsize**10):
     n = S_7*(annual_income - D_7) + S_6*(D_7 - D_6) + S_5*(D_6 - D_5) + S_4*(D_5 - D_4) + S_3*(D_4 - D_3) \
         + S_2*(D_3 - D_2) + S_1*(D_2 - D_1)
-print('the amount of tax is ', n)
+
 
 pass
 
@@ -80,3 +143,4 @@ pass
 # TODO (Daniel A): Code rewiew.
 
 pass
+print('the amount of tax is ', n)
