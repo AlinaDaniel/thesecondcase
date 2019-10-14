@@ -13,9 +13,10 @@ import local as lc
 annual_income = int(input('Enter your annual income: '))
 # The user chooses which category of the population he belongs to.
 category_of_population = str.lower(input(lc.TXT_FAMILY_STATUS))
+tax_deduction = int(input(lc.TXT_TAX_DEDUCTION))
 
 if category_of_population == lc.TXT_ONE_SUBJECT:
-    # Function, calculating the amount of annual tax deductions for one subject.
+    # Function, calculating the amount of annual tax for one subject.
     TAX_RATE_1 = 0.1
     TAX_RATE_2 = 0.15
     TAX_RATE_3 = 0.25
@@ -75,7 +76,7 @@ if category_of_population == lc.TXT_ONE_SUBJECT:
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 elif category_of_population == lc.TXT_MARRIED_COUPLE:
-    # Function, calculating the amount of annual tax deductions for a married couple.
+    # Function, calculating the amount of annual tax for a married couple.
     TAX_RATE_1 = 0.1
     TAX_RATE_2 = 0.15
     TAX_RATE_3 = 0.25
@@ -135,7 +136,7 @@ elif category_of_population == lc.TXT_MARRIED_COUPLE:
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 elif category_of_population == lc.TXT_SINGLE_PARENT:
-    # Function, calculating the amount of annual tax deductions for a single parent.
+    # Function, calculating the amount of annual tax for a single parent.
     TAX_RATE_1 = 0.1
     TAX_RATE_2 = 0.15
     TAX_RATE_3 = 0.25
@@ -195,6 +196,10 @@ elif category_of_population == lc.TXT_SINGLE_PARENT:
                         TAX_RATE_2 * (BOUNDARY_INCOME_3 - BOUNDARY_INCOME_2) + \
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 
+# Taking into account annual tax deductions.
+result = amount_of_tax - tax_deduction
+
+
 # TODO (Zaitseva A): Circle function for calculating a annual income.
 
 pass
@@ -210,4 +215,4 @@ pass
 pass
 
 
-print(lc.TXT_ANNUAL_TAX, round(amount_of_tax, 2))
+print(lc.TXT_ANNUAL_TAX, round(result, 2), '$')
