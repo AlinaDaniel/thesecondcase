@@ -10,12 +10,13 @@
 import sys
 import local as lc
 
-name_month = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль',
-              'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+name_month = [lc.TXT_JAN, lc.TXT_FAB, lc.TXT_MAR, lc.TXT_APR, lc.TXT_MAY, lc.TXT_JUN, lc.TXT_JUL,
+              lc.TXT_AUG, lc.TXT_SEP, lc.TXT_OCT, lc.TXT_NOV, lc.TXT_DEC]
 
 annual_income = 0
 for month in range(12):
-    print('Введите свой доход за', name_month[month], end =': ')
+    # Cycle for calculating the total income for the year.
+    print(lc.TXT_INCOME, name_month[month], end =': ')
     income = float(input())
     annual_income += income
 
