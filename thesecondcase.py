@@ -10,7 +10,15 @@
 import sys
 import local as lc
 
-annual_income = int(input('Enter your annual income: '))
+name_month = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль',
+              'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+annual_income = 0
+for month in range(12):
+    print('Введите свой доход за', name_month[month], end =': ')
+    income = float(input())
+    annual_income += income
+
 # The user chooses which category of the population he belongs to.
 category_of_population = str.lower(input(lc.TXT_FAMILY_STATUS))
 tax_deduction = int(input(lc.TXT_TAX_DEDUCTION))
