@@ -5,7 +5,7 @@
 
 # Developers:   Zemtseva A. (40%),
 #               Zaitseva A. (25%),
-#               Daniel A.   (%).
+#               Daniel A.   (55%).
 
 import sys
 import local as lc
