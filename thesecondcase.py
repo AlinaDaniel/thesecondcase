@@ -3,7 +3,7 @@
 # The program displays the amount of tax for an individual taking into account
 # his monthly income and annual tax deductions.
 
-# Developers:   Zemtseva A. (%),
+# Developers:   Zemtseva A. (40%),
 #               Zaitseva A. (%),
 #               Daniel A.   (%).
 
