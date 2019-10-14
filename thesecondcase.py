@@ -4,7 +4,7 @@
 # his monthly income and annual tax deductions.
 
 # Developers:   Zemtseva A. (40%),
-#               Zaitseva A. (%),
+#               Zaitseva A. (25%),
 #               Daniel A.   (%).
 
 import sys
