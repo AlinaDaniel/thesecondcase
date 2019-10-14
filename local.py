@@ -1,5 +1,6 @@
 #Localization for case #2 "Progressive taxation".
 
+
 TXT_FAMILY_STATUS = 'Введите свой семейный статус (один субъект, семейная пара' \
                     ' или родитель-одиночка): '
 
