@@ -22,7 +22,6 @@ for month in range(12):
 
 # The user chooses which category of the population he belongs to.
 category_of_population = str.lower(input(lc.TXT_FAMILY_STATUS))
-tax_deduction = int(input(lc.TXT_TAX_DEDUCTION))
 
 if category_of_population == lc.TXT_ONE_SUBJECT:
     # Function, calculating the amount of annual tax for one subject.
@@ -206,22 +205,6 @@ elif category_of_population == lc.TXT_SINGLE_PARENT:
                         TAX_RATE_1 * (BOUNDARY_INCOME_2 - BOUNDARY_INCOME_1)
 
 # Taking into account annual tax deductions.
+tax_deduction = int(input(lc.TXT_TAX_DEDUCTION))
 result = amount_of_tax - tax_deduction
-
-
-# TODO (Zaitseva A): Circle function for calculating a annual income.
-
-pass
-
-
-# TODO (Daniel A): Localization for the case.
-
-pass
-
-
-# TODO (Daniel A, Zemtseva A): Code rewiew.
-
-pass
-
-
 print(lc.TXT_ANNUAL_TAX, round(result, 2), '$')
